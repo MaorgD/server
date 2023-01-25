@@ -21,11 +21,12 @@ const sockets = (socket) => {
 
     socket.on("remove-room", roomController.roomRemoved);
 
-    socket.on("upload", ({ data , roomId }) => {
+    socket.on("upload", ({ data, roomId }) => {
         console.log(roomId);
         fs.writeFile("upload/" + "test.png", data, { encoding: "base64" },
             () => { });
-            
+
+        console.log(data);
         socket.broadcast.to(roomId).emit("uploaded", { Buffer: data.toString("base64") })
     });
 
