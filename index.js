@@ -18,7 +18,7 @@ const PORT = 4000;
 const httpServer = http.createServer(app)
 const io = new Server(httpServer, {
     cors: {
-        origin: ["http://localhost:3000"],
+        origin: ["https://adorable-mochi-5f7661.netlify.app"],
     },
 });
 
@@ -33,7 +33,7 @@ app.get("/", (req, res) => {
 
 });
 
-app.use('/' ,router);
+app.use('/', router);
 
 io.on('connection', sockets);
 
